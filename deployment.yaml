@@ -4,6 +4,9 @@ metadata:
   name: fresh-farm
   labels:
     app: fresh-farm
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: freshfarm=docker.io/naveen561729/fresh-farm:latest
+    argocd-image-updater.argoproj.io/freshfarm.update-strategy: latest
 spec:
   replicas: 1
   selector:
@@ -16,7 +19,7 @@ spec:
     spec:
       containers:
       - name: fresh-farm
-        image: yourdockerhubusername/fresh-farm:latest
+        image: naveen561729/fresh-farm:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 80
