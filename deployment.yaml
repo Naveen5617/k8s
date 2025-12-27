@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fresh-farm
+  labels:
+    app: fresh-farm
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fresh-farm
+  template:
+    metadata:
+      labels:
+        app: fresh-farm
+    spec:
+      containers:
+      - name: fresh-farm
+        image: yourdockerhubusername/fresh-farm:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
